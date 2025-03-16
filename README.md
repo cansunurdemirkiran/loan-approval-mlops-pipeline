@@ -1,4 +1,3 @@
-
 # Loan Approval Prediction System
 
 This project is an **end-to-end MLOps pipeline** designed for **loan approval classification** using state-of-the-art machine learning and automation techniques. It integrates:
