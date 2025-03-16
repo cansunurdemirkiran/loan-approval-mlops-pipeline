@@ -1,10 +1,6 @@
 
 # Loan Approval Prediction System
 
-  
-
-This repository contains the codebase for a loan approval prediction system. It includes data migration, model training, API deployment, model retraining, and API testing components.
-
 This project is an **end-to-end MLOps pipeline** designed for **loan approval classification** using state-of-the-art machine learning and automation techniques. It integrates:
 - **Data Migration** with **PostgreSQL & Docker Compose**
 - **Preprocessing & Model Training** with **scikit-learn**
