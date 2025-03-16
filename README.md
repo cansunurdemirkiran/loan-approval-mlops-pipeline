@@ -7,7 +7,7 @@ This project is an **end-to-end MLOps pipeline** designed for **loan approval cl
 - **Model Versioning** using **MLflow**
 - **Monitoring & Logging** with **Prometheus & FastAPI**
 - **Drift Detection** using **FastAPI** and  **Automated Model Retraining** with **Subprocess** when drift is detected.
-- **Regular Model Retraining** with **Crob**
+- **Regular Model Retraining** with **Cron**
 - **System Validation** with **API Requests**
   
 
@@ -93,7 +93,7 @@ Move data from CSV to PostgreSQL:
 
 ```bash
 
-python  src/data_migration.py
+python3  src/data_migration.py
 
 ```
 
@@ -109,7 +109,7 @@ Apply preproccessing and train the RandomForest model and save the artifacts:
 
 ```bash
 
-python  src/preprocess_and_train.py
+python3  src/preprocess_and_train.py
 
 ```
 
@@ -165,7 +165,7 @@ Run API tests:
 
 ```bash
 
-python  src/test_api.py
+python3  src/test_api.py
 
 ```
 
@@ -193,7 +193,7 @@ Trigger retraining if data drift is detected:
 
 ```bash
 
-python  src/retrain.py
+python3  src/retrain.py
 
 ```
 
