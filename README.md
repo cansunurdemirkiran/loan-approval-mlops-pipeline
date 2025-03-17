@@ -219,17 +219,13 @@ python3  src/retrain.py
 
 ## API Endpoints
 
-| Method | Endpoint | Description |
+| Endpoint | Description |
+|--|--|
+| `/health` | Health check with **GET** Method |
+| `/metrics` | Prometheus metrics with **GET** Method |
+|  `/predict` | Predict loan approval with **POST** Method|
+| `/monitoring/data_drift` | Check data drift with **GET** Method|
 
-|--------|----------------|------------------------|
-
-| GET | `/health` | Health check |
-
-| GET | `/metrics` | Prometheus metrics |
-
-| POST | `/predict` | Predict loan approval |
-
-| GET | `/monitoring/data_drift` | Check data drift |
 
 
 ## Automatically Overwrite the Model in FastAPI
