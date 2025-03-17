@@ -11,7 +11,7 @@ This project is an **end-to-end MLOps pipeline** designed for **loan approval cl
 - **System Validation** with **API Requests**
   
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 
@@ -58,10 +58,10 @@ This project is an **end-to-end MLOps pipeline** designed for **loan approval cl
 ```
   
 
-## 🚀 Setup Instructions
+## Setup Instructions
 
 
-### 1️⃣ Install Dependencies
+### 1️. Install Dependencies
 
 Make sure you have Python installed, then run:
 
@@ -73,7 +73,7 @@ pip  install  -r  requirements.txt
 
   
 
-### 2️⃣ Run Services with Docker Compose
+### 2️. Run Services with Docker Compose
 
 Ensure Docker and Docker Compose are installed, then run:
 
@@ -87,7 +87,7 @@ This will start PostgreSQL and pgAdmin services.
 
   
 
-### 3️⃣ Migrate Data
+### 3️. Migrate Data
 
 Move data from CSV to PostgreSQL:
 
@@ -103,7 +103,7 @@ python3  src/data_migration.py
 
   
 
-### 4️⃣ Preprocess & Train the Model
+### 4️. Preprocess & Train the Model
 
 Apply preproccessing and train the RandomForest model and save the artifacts:
 
@@ -139,7 +139,7 @@ python3  src/preprocess_and_train.py
 
   
 
-### 5️⃣ Run the FastAPI Server
+### 5️. Run the FastAPI Server
 
 Deploy the API for loan prediction:
 
@@ -159,7 +159,7 @@ uvicorn  fastapi_deployment:app  --reload
 
   
 
-### 6️⃣ Test the API
+### 6️. Test the API
 
 Run API tests:
 
@@ -187,7 +187,7 @@ python3  src/test_api.py
 
   
 
-### 7️⃣ Model Retraining (Triggered from '/monitoring/data_drift' endpoint)
+### 7️. Model Retraining (Triggered from '/monitoring/data_drift' endpoint)
 
 Trigger retraining if data drift is detected:
 
@@ -217,7 +217,7 @@ python3  src/retrain.py
 
   
 
-## 📡 API Endpoints
+## API Endpoints
 
 | Method | Endpoint | Description |
 
@@ -232,7 +232,7 @@ python3  src/retrain.py
 | GET | `/monitoring/data_drift` | Check data drift |
 
 
-## 🔄 Automatically Overwrite the Model in FastAPI
+## Automatically Overwrite the Model in FastAPI
 
 After retraining, **FastAPI automatically reloads the latest model** from the filesystem. 
 
@@ -240,9 +240,9 @@ After retraining, **FastAPI automatically reloads the latest model** from the fi
 2. **FastAPI's monitoring script** detects the file update and reloads it.
 3. The **API continues serving predictions** using the updated model **without downtime**.
 
-✅ **This ensures the latest version of the model is always in production.**
+ **This ensures the latest version of the model is always in production.**
 
-## ⏳ Schedule Auto-Retraining (Cron)
+## Schedule Auto-Retraining (Cron)
 
 To schedule automatic model retraining, **use a cron job**.
 
@@ -257,24 +257,21 @@ To schedule automatic model retraining, **use a cron job**.
    ```
 
 
+##  Web-Based Tools for API, Model Tracking & Database Management
 
-## 📂 Web-Based Tools for API, Model Tracking & Database Management
+### **1️. FastAPI - API Documentation & Testing**
 
-### **🚀 1️⃣ FastAPI - API Documentation & Testing**
-
-📌 **What is it?**
 FastAPI provides an **interactive Swagger UI** for testing the **loan approval API**.
 1. Open [http://localhost:8000/docs](http://localhost:8000/docs) in your browser.
 2. You will see a list of API endpoints.
 3. Click on **`/predict`** → Enter loan applicant details.
 4. Click **Execute** → See the prediction result.
 
-✅ **Runs when `fastapi_deployment.py` is executed.**
+**Runs when `fastapi_deployment.py` is executed.**
 
 ---
-### **📊 2️⃣ MLflow UI - Model Tracking & Versioning**
+### **2️. MLflow UI - Model Tracking & Versioning**
 
-📌 **What is it?**
 MLflow is used for **tracking machine learning experiments** and **model versioning**.
 
 1. Start MLflow UI:
@@ -287,12 +284,11 @@ MLflow is used for **tracking machine learning experiments** and **model version
    - Model **artifacts (`loan_approval_model.pkl`)**.
    - Different **model versions**.
 
-✅ **Runs when `train_model.py` logs a model in MLflow.**
+**Runs when `train_model.py` logs a model in MLflow.**
 
 ---
-### **🗄️ 3️⃣ pgAdmin - PostgreSQL Database Management**
+### **3️. pgAdmin - PostgreSQL Database Management**
 
-📌 **What is it?**
 pgAdmin is a **web-based GUI** for managing **PostgreSQL databases**.
 
 1. Open [http://localhost:5050/browser/](http://localhost:5050/browser/).
@@ -307,10 +303,10 @@ pgAdmin is a **web-based GUI** for managing **PostgreSQL databases**.
    SELECT * FROM loan_data LIMIT 10;
    ```
 
-✅ **Runs when `docker-compose up -d` starts PostgreSQL.**
+**Runs when `docker-compose up -d` starts PostgreSQL.**
   
 
-## 🛠 Technologies Used
+## Technologies Used
 
 -  **Python** (FastAPI, Pandas, Scikit-Learn, MLflow)
 
@@ -323,6 +319,6 @@ pgAdmin is a **web-based GUI** for managing **PostgreSQL databases**.
 - **Cron Jobs** (Automated retraining pipeline)
 
 
-## 📜 License
+## License
 
 This project is open-source and available under the MIT License.
