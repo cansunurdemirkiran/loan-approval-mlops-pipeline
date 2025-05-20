@@ -15,9 +15,9 @@ This project is an **end-to-end MLOps pipeline** designed for **loan approval cl
 
 ```
 
-📦 loan-approval-system
+loan-approval-system
 
-├── 📂 data
+├──  data
 
 │ ├── loan_data.csv # Project data
 
@@ -25,7 +25,7 @@ This project is an **end-to-end MLOps pipeline** designed for **loan approval cl
 
 │ ├── train_data.csv # Processed training data
 
-├── 📂 models
+├──  models
 
 │ ├── loan_approval_model.pkl # Trained model
 
@@ -33,7 +33,7 @@ This project is an **end-to-end MLOps pipeline** designed for **loan approval cl
 
 │ ├── optimal_threshold.txt # Decision threshold
 
-├── 📂 src
+├──  src
 
 │ ├── data_migration.py # Migrate data from CSV to PostgreSQL
 
@@ -43,17 +43,17 @@ This project is an **end-to-end MLOps pipeline** designed for **loan approval cl
 
 │ ├── retrain.py # Model retraining script
 
-├── 📂 test
+├──  test
 
 │ ├── test_api.py # API testing script
 
-├── 📜 requirements.txt # Dependencies
+├──  requirements.txt # Dependencies
 
-├── 📜 docker-compose.yml # Docker Compose configuration
+├──  docker-compose.yml # Docker Compose configuration
 
-├── 📜 README.md # Documentation
+├──  README.md # Documentation
 
-├── 📜 .gitignore # Files to ignore in Git
+├──  .gitignore # Files to ignore in Git
 
 ```
   
@@ -61,7 +61,7 @@ This project is an **end-to-end MLOps pipeline** designed for **loan approval cl
 ## Setup Instructions
 
 
-### 1️. Install Dependencies
+### 1. Install Dependencies
 
 Make sure you have Python installed, then run:
 
@@ -73,7 +73,7 @@ pip  install  -r  requirements.txt
 
   
 
-### 2️. Run Services with Docker Compose
+### 2. Run Services with Docker Compose
 
 Ensure Docker and Docker Compose are installed, then run:
 
@@ -87,7 +87,7 @@ This will start PostgreSQL and pgAdmin services.
 
   
 
-### 3️. Migrate Data
+### 3. Migrate Data
 
 Move data from CSV to PostgreSQL:
 
@@ -103,7 +103,7 @@ python3  src/data_migration.py
 
   
 
-### 4️. Preprocess & Train the Model
+### 4. Preprocess & Train the Model
 
 Apply preproccessing and train the RandomForest model and save the artifacts:
 
@@ -139,7 +139,7 @@ python3  src/preprocess_and_train.py
 
   
 
-### 5️. Run the FastAPI Server
+### 5. Run the FastAPI Server
 
 Deploy the API for loan prediction:
 
@@ -159,7 +159,7 @@ uvicorn  fastapi_deployment:app  --reload
 
   
 
-### 6️. Test the API
+### 6. Test the API
 
 Run API tests:
 
@@ -187,7 +187,7 @@ python3  src/test_api.py
 
   
 
-### 7️. Model Retraining (Triggered from '/monitoring/data_drift' endpoint)
+### 7. Model Retraining (Triggered from '/monitoring/data_drift' endpoint)
 
 Trigger retraining if data drift is detected:
 
@@ -255,7 +255,7 @@ To schedule automatic model retraining, **use a cron job**.
 
 ##  Web-Based Tools for API, Model Tracking & Database Management
 
-### **1️. FastAPI - API Documentation & Testing**
+### **1. FastAPI - API Documentation & Testing**
 
 FastAPI provides an **interactive Swagger UI** for testing the **loan approval API**.
 1. Open [http://localhost:8000/docs](http://localhost:8000/docs) in your browser.
@@ -266,7 +266,7 @@ FastAPI provides an **interactive Swagger UI** for testing the **loan approval A
 **Runs when `fastapi_deployment.py` is executed.**
 
 ---
-### **2️. MLflow UI - Model Tracking & Versioning**
+### **2. MLflow UI - Model Tracking & Versioning**
 
 MLflow is used for **tracking machine learning experiments** and **model versioning**.
 
@@ -283,7 +283,7 @@ MLflow is used for **tracking machine learning experiments** and **model version
 **Runs when `train_model.py` logs a model in MLflow.**
 
 ---
-### **3️. pgAdmin - PostgreSQL Database Management**
+### **3. pgAdmin - PostgreSQL Database Management**
 
 pgAdmin is a **web-based GUI** for managing **PostgreSQL databases**.
 
